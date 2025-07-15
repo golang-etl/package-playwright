@@ -133,3 +133,13 @@ func CookiesToHeader(cookies []playwright.Cookie) string {
 
 	return strings.Join(parts, "; ")
 }
+
+func OptionalCookiesToHeader(optionalCookies []playwright.OptionalCookie) string {
+	var parts []string
+
+	for _, c := range optionalCookies {
+		parts = append(parts, fmt.Sprintf("%s=%s", c.Name, c.Value))
+	}
+
+	return strings.Join(parts, "; ")
+}
